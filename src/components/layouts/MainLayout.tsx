@@ -5,6 +5,7 @@ import SidebarDrawer from "../sections/SidebarDrawer";
 import Topbar from "../sections/Topbar";
 import useIsMobile from "@/hooks/useIsMobile";
 import toast from "react-hot-toast";
+import api from "@/service/api";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
     const { setCurrentUser, token, setToken } = useAuthStore();
@@ -20,23 +21,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     };
 
     const getUser = async () => {
-        const res = await fetch('/api/me', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
+        await api.get('/me').then((res) => {
+            setCurrentUser(res.data?.user)
+        }).catch((err) => {
+            console.log(err)
         })
-
-        if (res.status === 200) {
-            const data = await res.json()
-            setCurrentUser(data.user)
-        } else {
-            toast.error('Invalid token')
-            setCurrentUser(null)
-            setToken(null)
-            localStorage.removeItem('ACCESS_TOKEN')
-            window.location.href = '/login'
-        }
     }
 
     useEffect(() => {
