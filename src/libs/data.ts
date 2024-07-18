@@ -63,32 +63,35 @@ export const chartData = [
         yesterday: getRandomValue(10, 99)
     }
 ];
-// const detailChart = [
-//     {
-//         name: 'Resolved',
-//         value: 'resolved',
-//     },
-//     {
-//         name: 'Received',
-//         value: 'received',
-//     },
-//     {
-//         name: 'Average first response time',
-//         value: 'avgFirstResponseTime',
-//     },
-//     {
-//         name: 'Average response time',
-//         value: 'avgFesponseTime',
-//     },
-//     {
-//         name: 'Resolution with SLA',
-//         value: 'resolutionWithSLA',
-//     }
-// ]
 export const chartDetail = {
     "resolved": getRandomValue(10, 500),
     "received": getRandomValue(10, 500),
     "avgFirstResponseTime": getRandomValue(10, 99),
     "avgFesponseTime": getRandomValue(10, 99),
     "resolutionWithSLA": getRandomValue(1, 100),
-} 
+}
+
+export const unresolvedTicket = {
+    "Waiting on Feature Request": getRandomValue(1000, 5000),
+    "Awaiting Customer Response": getRandomValue(1000, 5000),
+    "Awaiting Developer Fix": getRandomValue(100, 1000),
+    "Pending": getRandomValue(100, 500),
+}
+
+export const tasks = [
+    {
+        label: "Finish ticket update",
+        type: "urgent",
+        status: "undone",
+    },
+    {
+        label: "Create new ticket example",
+        type: "new",
+        status: "undone",
+    },
+    {
+        label: "Update ticket report",
+        type: "default",
+        status: "done",
+    }
+]

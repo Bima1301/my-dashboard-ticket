@@ -149,17 +149,9 @@ export default function DataChart() {
                 </div>
             ) : (
                 <div className='lg:flex flex-col grid grid-cols-2 border-l justify-evenly w-full lg:max-w-[20%] dark:border-l-gray-500'>
-                    {/* {detail?.chartDetailData?.map((item: any, index: number) => (
-                        <div className='flex flex-col gap-2 justify-center items-center border-b p-4 dark:border-b-gray-500' key={index}>
-                            <p className='md:text-base text-xs text-gray-400 dark:text-gray-400 font-semibold text-center'>{item.name}</p>
-                            <p className='md:text-2xl text-base font-semibold text-gray-900 dark:text-gray-200 text-center'>
-                                {item.value}
-                            </p>
-                        </div>
-                    ))} */}
                     {Object.entries(detail?.chartDetailData).map(([key, value]: any, index: number) => (
                         <div className='flex flex-col gap-2 justify-center items-center border-b p-4 dark:border-b-gray-500' key={index}>
-                            <p className='md:text-base text-xs text-gray-400 dark:text-gray-400 font-semibold text-center'>
+                            <p className='md:text-base text-xs text-gray-400 font-semibold text-center'>
                                 {detailChart.find((item: any) => item.value === key)?.name}
                             </p>
                             <p className='md:text-2xl text-base font-semibold text-gray-900 dark:text-gray-200 text-center'>
