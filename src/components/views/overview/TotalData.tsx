@@ -2,7 +2,6 @@
 import api from '@/service/api'
 import { Spinner } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
-import toast from 'react-hot-toast'
 
 export default function TotalData({ title, identifier }: { title: string, identifier: string }) {
     const [detail, setDetail] = useState<{ totalDatas: number } | null>(null)
@@ -28,7 +27,7 @@ export default function TotalData({ title, identifier }: { title: string, identi
 
     return (
         <div className='w-full h-full aspect-video p-4 flex flex-col gap-2 rounded-md bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-400 justify-between items-center'>
-            <p className='md:text-lg text-xs text-gray-500 dark:text-gray-400 font-semibold'>{title}</p>
+            <p className='md:text-lg text-sm text-gray-500 dark:text-gray-400 font-semibold'>{title}</p>
             {isLoading ? (
                 <Spinner />
             ) : (
