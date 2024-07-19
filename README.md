@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Technology In Projects
 
-## Getting Started
+- Next.js (14) App Router
+- React (18)
+- Flowbite React
+- Tailwind CSS
+- Recharts
+- Zustand
+- Typescript
+- Node v20.15.1
+- NPM v10.7.0
 
-First, run the development server:
+## Usage
+
+### 1. Clone the project
+
+```bash
+git clone https://github.com/Bima1301/my-dashboard-ticket.git
+```
+
+### 2. Install dependencies 
+
+```bash
+npm install
+```
+
+### 3. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Login with email and password
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+#Admin
+username: super@admin.com
+password: 123123123
 
-## Learn More
+#Guest
+username: john@doe.com
+password: 123123123
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Deployed on Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://my-dashboard-ticket.vercel.app)

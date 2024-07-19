@@ -29,11 +29,11 @@ export default function SidebarDrawer({ isSidebarOpen }: { isSidebarOpen: boolea
                     </Link>
                 </Sidebar.ItemGroup>
                 <Sidebar.ItemGroup>
-                    <Link href={'/settings'} className={`flex items-center gap-3 py-3 px-5 md:text-lg text-sm text-gray-700 dark:text-white hover:bg-black/10 dark:hover:bg-white/5 border-l-4 `}>
+                    <Link href={'/settings'} className={`flex items-center gap-3 py-3 px-5 md:text-lg text-sm text-gray-700 dark:text-white hover:bg-black/10 dark:hover:bg-white/5 border-l-4 ${pathname.includes('settings') ? 'bg-black/10 border-blue-400 dark:bg-white/5 dark:border-white' : 'border-transparent'}`}>
                         <FaGear className="md:size-[18px] size-4" />
                         Settings
                     </Link>
-                    <Link href={'/subscriptions'} className={`flex items-center gap-3 py-3 px-5 md:text-lg text-sm text-gray-700 dark:text-white hover:bg-black/10 dark:hover:bg:white/5 border-l-4 `}>
+                    <Link href={'/subscriptions'} className={`flex items-center gap-3 py-3 px-5 md:text-lg text-sm text-gray-700 dark:text-white hover:bg-black/10 dark:hover:bg:white/5 border-l-4 ${pathname.includes('subscriptions') ? 'bg-black/10 border-blue-400 dark:bg-white/5 dark:border-white' : 'border-transparent'}`}>
                         <PiMedalFill className="md:size-[18px] size-4" />
                         Subscriptions
                     </Link>
