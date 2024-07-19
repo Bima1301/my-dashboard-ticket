@@ -6,6 +6,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import useAuthStore from "@/stores/authStore";
 import { useThemeStore } from "@/stores/themeStore";
 import { usePathname } from "next/navigation";
+import { formatPathname } from "@/libs/utils";
 
 export default function Topbar({ toggleSidebar }: { toggleSidebar: () => void }) {
     const { currentUser, setToken, setCurrentUser } = useAuthStore();
@@ -41,7 +42,7 @@ export default function Topbar({ toggleSidebar }: { toggleSidebar: () => void })
                 </button>
             )}
             <p className="md:text-2xl text-lg font-semibold">
-                {pathname.slice(1).replace(/^\w/, (c) => c.toUpperCase())}
+                {formatPathname(pathname)}
             </p>
             <div className="flex flex-row items-center gap-3 divide-x-2 divide-gray-400 dark:divide-gray-500">
                 <button

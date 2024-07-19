@@ -25,3 +25,20 @@ export const formatNumber = (val: any) => {
 export const getRandomValue = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export const formatPathname = (path: string) => {
+    const trimmedPath = path.replace(/^\//, '');
+
+    if (trimmedPath === 'ticket') {
+        return 'Ticket';
+    }
+
+    if (trimmedPath.startsWith('ticket/')) {
+        return 'Ticket';
+    }
+
+    return trimmedPath
+        .split('/')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}

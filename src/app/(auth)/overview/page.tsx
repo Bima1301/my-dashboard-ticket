@@ -1,7 +1,10 @@
+'use client'
 import DataChart from '@/components/views/overview/DataChart'
 import TicketAndTask from '@/components/views/overview/TicketAndTask'
 import TotalData from '@/components/views/overview/TotalData'
-import React from 'react'
+import useAuthStore from '@/stores/authStore'
+import { useRouter } from 'next/navigation'
+import React, { useEffect } from 'react'
 
 const overview = [
     {
@@ -23,18 +26,29 @@ const overview = [
 ]
 
 export default function Overview() {
+    const { currentUser } = useAuthStore()
+    const router = useRouter()
+    useEffect(() => {
+        if (currentUser && currentUser.role !== "admin") {
+            router.push('/tickets')
+        }
+    }, [currentUser])
 
-    return (
-        <div className='flex justify-center my-7'>
-            <div className='flex flex-col w-full h-full max-w-7xl md:gap-10 gap-5'>
-                <div className='grid lg:grid-cols-4 grid-cols-2 md:gap-10 gap-3'>
-                    {overview.map((item, index) => (
-                        <TotalData key={index} title={item.title} identifier={item.identifier} />
-                    ))}
+    if (currentUser) {
+        return (
+            <div className='flex justify-center my-7'>
+                <div className='flex flex-col w-full h-full max-w-7xl md:gap-10 gap-5'>
+                    <div className='grid lg:grid-cols-4 grid-cols-2 md:gap-10 gap-3'>
+                        {overview.map((item, index) => (
+                            <TotalData key={index} title={item.title} identifier={item.identifier} />
+                        ))}
+                    </div>
+                    <DataChart />
+                    <TicketAndTask />
                 </div>
-                <DataChart />
-                <TicketAndTask />
             </div>
-        </div>
-    )
+        )
+    } else {
+        return null
+    }
 }

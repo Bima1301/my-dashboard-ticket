@@ -38,6 +38,8 @@ export default function Login() {
     }
     if (formData.password === "") {
       setError((prev) => ({ ...prev, password: "Password is required" }));
+    } else if (formData.password.length < 8) {
+      setError((prev) => ({ ...prev, password: "Password must be at least 8 characters" }));
     }
 
     try {

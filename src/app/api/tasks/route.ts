@@ -11,5 +11,5 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: "Invalid token" }, { status: 401 });
     }
 
-    return NextResponse.json(tasks);
+    return NextResponse.json(tasks.filter((task) => task.userId === user.id));
 }
